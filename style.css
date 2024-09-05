@@ -108,23 +108,38 @@ nav.sticky .menu-btn{
 }
 
 /* home section styling */
-.home{
-  height: 100vh;
-  width: 100%;
-  background: url("images/background.png") no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  font-family: 'Ubuntu', sans-serif;
-}
-.home .home-content{
-  width: 90%;
-  height: 100%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+.home {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    font-family: 'Ubuntu', sans-serif;
+    overflow: hidden; /* Ensure no content overflows */
+  }
+  
+  .home::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("images/background.png") no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    opacity: 0.5; /* Adjust this for the transparency level */
+    z-index: -1; /* Keep the image behind the content */
+  }
+  
+  .home .home-content {
+    width: 90%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative; /* Ensure content stays on top */
+    z-index: 1; /* Ensure content is above the background */
+  }
 .home .text-one{
   font-size: 25px;
   color: #0E2431;
@@ -165,6 +180,7 @@ nav.sticky .menu-btn{
   background-color: #fff;
   color: #4070f4;
 }
+
 /* button margin */
 .fcc-btn {
   outline: none;
@@ -330,7 +346,7 @@ section .button button:hover{
 }
 
 /* My Experience CSS */
-.services .boxes{
+.experience .boxes{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -352,8 +368,8 @@ section .button button:hover{
 .experience .boxes .box .icon{
   height: 50px;
   width: 50px;
-  /* background: #4070f4; */
-  background: transparent;
+  background: #4070f4;
+  /* background: transparent; */
   border-radius: 50%;
   text-align: center;
   line-height: 50px;
@@ -377,51 +393,126 @@ section .button button:hover{
 }
 
 /* My Projects Section CSS */
+.projects{
+    background: #F0F8FF;
+}
 .projects .boxes{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
   }
-  .projects .boxes .box{
-    margin: 20px 0;
-    width: calc(100% / 3 - 20px);
-    text-align: center;
-    border-radius: 12px;
-    padding: 30px 10px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
-    cursor: default;
-    transition: all 0.4s ease;
-    background-color: #28a745; /* Changed to a green color */
-    color: #fff;
+.projects .boxes .box{
+margin: 20px 0;
+width: calc(100% / 3 - 20px);
+text-align: center;
+border-radius: 12px;
+padding: 30px 10px;
+box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
+cursor: default;
+transition: all 0.4s ease;
+background-color: #4d92d4;
+color: #fff;
+}
+.projects .boxes .box:hover{
+background: #0468c7;
+color: #fff;
+}
+.projects .boxes .box .icon{
+height: 50px;
+width: 50px;
+background-color: #fff;
+border-radius: 50%;
+text-align: center;
+line-height: 50px;
+font-size: 18px;
+color: hsl(0, 0%, 0%);
+margin: 0 auto 10px auto;
+transition: all 0.4s ease;
+}
+.boxes .box:hover .icon{
+background-color: #fff;
+color: #28a745; /* Green for icon on hover */
+}
+.projects .boxes .box:hover .topic,
+.projects .boxes .box:hover p{
+color: #0e3123;
+transition: all 0.4s ease;
+}
+.projects .boxes .box:hover .topic,
+.projects .boxes .box:hover p{
+color: #fff;
+}
+
+/* Achievements Section CSS (List Style) */
+.achievements {
+    padding: 60px 0;
+    background-color: #f9f9f9; /* Light background color */
   }
-  .projects .boxes .box:hover{
-    background: #218838; /* Darker green on hover */
-    color: #fff;
+  
+  .achievements .content {
+    width: 90%;
+    margin: 0 auto;
   }
-  .projects .boxes .box .icon{
-    height: 50px;
-    width: 50px;
-    background: transparent;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 50px;
-    font-size: 18px;
-    color: #fff;
-    margin: 0 auto 10px auto;
-    transition: all 0.4s ease;
-  }
-  .boxes .box:hover .icon{
-    background-color: #fff;
-    color: #28a745; /* Green for icon on hover */
-  }
-  .projects .boxes .box:hover .topic,
-  .projects .boxes .box:hover p{
+  
+  .achievements .title {
+    font-size: 45px;
     color: #0E2431;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .achievements ul {
+    list-style-type: none; /* Remove default list bullets */
+    padding: 0;
+  }
+  
+  .achievements li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #0E2431;
+    padding: 15px;
+    background-color: #fff; /* Add light background for list items */
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .achievements li:hover {
+    background-color: #4070f4; /* Change background color on hover */
+    color: #fff; /* Text changes to white on hover */
+  }
+  
+  .achievements li .icon {
+    margin-right: 15px;
+    font-size: 30px;
+    color: #4070f4;
     transition: all 0.4s ease;
   }
-  .projects .boxes .box:hover .topic,
-  .projects .boxes .box:hover p{
-    color: #fff;
+  
+  .achievements li:hover .icon {
+    color: #fff; /* Change icon color on hover */
+  }
+  
+  .achievements li .text {
+    flex-grow: 1;
+  }
+  
+  .achievements li .topic {
+    font-size: 20px;
+    font-weight: 600;
+    color: #0E2431;
+  }
+  
+  .achievements li p {
+    margin: 5px 0;
+    color: #707070;
+  }
+  
+  .achievements li:hover p,
+  .achievements li:hover .topic {
+    color: #fff; /* Change text color on hover */
   }
   
 
