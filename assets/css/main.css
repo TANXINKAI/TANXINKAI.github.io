@@ -3997,3 +3997,88 @@ input, select, textarea {
 	body.is-mobile.landing #footer {
 		background-color: #1d242a;
 	}
+
+/* Styling for the top navbar */
+	.top-navbar {
+		position: fixed;
+		top: 0;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		background-color: #333;
+		padding: 10px 20px;
+		z-index: 10;
+	}
+
+	.top-navbar .logo a {
+		color: white;
+		text-decoration: none;
+		font-size: 20px;
+	}
+
+	.top-navbar .menu {
+		display: flex;
+		list-style: none;
+		gap: 20px;
+	}
+
+	.top-navbar .menu li a {
+		color: white;
+		text-decoration: none;
+		padding: 5px 10px;
+	}
+
+	.top-navbar .menu li a:hover {
+		background-color: #555;
+		border-radius: 5px;
+	}
+
+	/* Styling for the special top-right nav */
+	.special-nav {
+		position: fixed;
+		top: 0;
+		right: 20px;
+		z-index: 11;
+	}
+
+	.special-nav .menuToggle {
+		background-color: #444;
+		color: white;
+		padding: 10px;
+		border-radius: 5px;
+		cursor: pointer;
+		text-decoration: none;
+	}
+
+	.special-nav #menu {
+		display: none;
+		background-color: #222;
+		position: absolute;
+		right: 0;
+		top: 40px;
+		padding: 10px;
+		border-radius: 5px;
+	}
+
+	.special-nav #menu ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.special-nav #menu ul li a {
+		color: white;
+		padding: 5px 10px;
+		display: block;
+		text-decoration: none;
+	}
+
+	.special-nav #menu ul li a:hover {
+		background-color: #555;
+		border-radius: 5px;
+	}
+
+	/* For showing the menu on toggle */
+	.special-nav .menuToggle:hover + #menu {
+		display: block;
+	}
